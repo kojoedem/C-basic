@@ -165,3 +165,21 @@ int main() {
 * **Memory Architecture Awareness:** Confirmed understanding of memory space allocations, uninitialized variable leakage anomalies, and structural garbage values.
 * **Exploit Math Competency:** Achieved exact Base-16 Hexadecimal address offset isolation to calculate precise programmatic jumps.
 * **Control Flow Modification:** Successfully re-routed CPU instruction routing via dynamic function pointers to capture administrative flags.
+
+  
+┌────────────────────────────────────────────────────────┐ Higher Memory Addresses
+│  THE STACK                                             │ 
+│  - Tracks local variables, arguments, return locations │ ──> Grows DOWNWARD
+├────────────────────────────────────────────────────────┤
+│  ▲▼  Shared Libraries / Memory Mappings                │
+├────────────────────────────────────────────────────────┤
+│  THE HEAP                                              │
+│  - Dynamic memory created at runtime (malloc/free)     │ ──> Grows UPWARD
+├────────────────────────────────────────────────────────┤
+│  BSS / DATA SEGMENTS                                   │
+│  - Stores global and static variables                  │
+├────────────────────────────────────────────────────────┤
+│  TEXT SEGMENT                                          │
+│  - The actual compiled read-only machine code (binary) │
+└────────────────────────────────────────────────────────┘ Lower Memory Addresses
+
